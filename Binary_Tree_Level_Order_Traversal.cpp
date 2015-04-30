@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <queue>
+
 using namespace std;
 
 struct TreeNode {
@@ -31,9 +32,9 @@ public:
         while(Q.size()!=0)
         {
             TreeNode* newRoot = Q.front();    //Update the new root continuously by pushing the TreeNode* into and out of the queue
-            Q.pop();    //pop out of the previous root
-            visitedCount++;
             level.push_back(newRoot->val);
+            visitedCount++;
+            Q.pop();    //pop out of the current root
 
             if(newRoot->left!=NULL)
             {
@@ -94,4 +95,3 @@ int main()
     }
     return 0;
 }
-
