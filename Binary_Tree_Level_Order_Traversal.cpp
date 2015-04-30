@@ -11,6 +11,7 @@ struct TreeNode {
     TreeNode(int x): val(x), left(NULL), right(NULL) { }
 };
 
+//Breadth First Search
 
 class Solution{
 public:
@@ -23,14 +24,14 @@ public:
         Q.push(root);
 
         int nextLevelCount=0, currentLevelCount=1;
-        vector<int> layer;
+        vector<int> level;
         int visitedCount=0;
         while(Q.size()!=0)
         {
             TreeNode* node = Q.front();
             Q.pop();
             visitedCount++;
-            layer.push_back(node->val);
+            level.push_back(node->val);
             if(node->left!=NULL)
             {
                 Q.push(node->left);
@@ -46,8 +47,8 @@ public:
                 visitedCount=0;
                 currentLevelCount = nextLevelCount;
                 nextLevelCount = 0;
-                result.push_back(layer);
-                layer.clear();
+                result.push_back(level);
+                level.clear();
             }
 
         }
@@ -90,5 +91,4 @@ int main()
     }
     return 0;
 }
-
 
