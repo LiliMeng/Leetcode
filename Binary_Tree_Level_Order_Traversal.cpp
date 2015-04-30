@@ -26,20 +26,23 @@ public:
         int nextLevelCount=0, currentLevelCount=1;
         vector<int> level;
         int visitedCount=0;
+
+        //push every level of the tree into the result continuously as long as there is a TreeNode in the queue
         while(Q.size()!=0)
         {
-            TreeNode* node = Q.front();
-            Q.pop();
+            TreeNode* newRoot = Q.front();    //Update the new root continuously by pushing the TreeNode* into and out of the queue
+            Q.pop();    //pop out of the previous root
             visitedCount++;
-            level.push_back(node->val);
-            if(node->left!=NULL)
+            level.push_back(newRoot->val);
+
+            if(newRoot->left!=NULL)
             {
-                Q.push(node->left);
+                Q.push(newRoot->left);
                 nextLevelCount++;
             }
-            if(node->right!=NULL)
+            if(newRoot->right!=NULL)
             {
-                Q.push(node->right);
+                Q.push(newRoot->right);
                 nextLevelCount++;
             }
             if(visitedCount==currentLevelCount)
