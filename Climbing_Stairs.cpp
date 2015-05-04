@@ -28,3 +28,7 @@ int main()
     Solution s;
     cout<<s.climbStairs(3)<<endl;
 }
+
+/* The dynamic programming divide an overall problem to several subproblems. Often using a more naive method, many subproblems are generated and solved many times. 
+The dynamic programming algorithms seek to solve every subproblem only once */
+Often when using a more naive method, many of the subproblems are generated and solved many times. The dynamic programming approach seeks to solve each subproblem only once, thus reducing the number of computations: once the solution to a given subproblem has been computed, it is stored or "memo-ized": the next time the same solution is needed, it is simply looked up. This approach is especially useful when the number of repeating subproblems grows exponentially as a function of the size of the input.
