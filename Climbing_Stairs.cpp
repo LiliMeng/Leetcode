@@ -1,3 +1,8 @@
+/* It was solved by a Fibonacci numbers algorithms taught in (MIT Algorithms)
+
+First, an array is established to memorize the numbers, and then the numbers in the MemoryArray is adopted for recursion*/ 
+
+
 #include <iostream>
 #include <vector>
 #include <array>
