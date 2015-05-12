@@ -4,6 +4,8 @@
 using namespace std;
 
 /*
+
+complexity: O(n)
 Video: https://www.youtube.com/watch?v=HtSuA80QTyo  around 17:00
 Leetcode: https://leetcode.com/problems/find-peak-element/
 
