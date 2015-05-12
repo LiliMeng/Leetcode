@@ -7,7 +7,8 @@ using namespace std;
 
 if(nums[0]>nums[1])  return 0; 
 if(nums[nums.size()-1]>nums[nums.size()-2]) return nums.size()-1; 
-under the assumption that (nums[i]>nums[i+1] and nums[i]>nums[i-1]) could not be satisfied. */
+under the assumption that (nums[i]>nums[i+1] and nums[i]>nums[i-1]) could not be satisfied.
+rather than considering the two end position first*/
 
 
 class Solution {
