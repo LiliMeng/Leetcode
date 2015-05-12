@@ -3,7 +3,11 @@
 
 using namespace std;
 
-/*For this peak finding, the tricky part is
+/*
+Video: https://www.youtube.com/watch?v=HtSuA80QTyo  around 17:00
+Leetcode: https://leetcode.com/problems/find-peak-element/
+
+For this peak finding, the tricky part is
 
 if(nums[0]>nums[1])  return 0; 
 if(nums[nums.size()-1]>nums[nums.size()-2]) return nums.size()-1; 
