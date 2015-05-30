@@ -54,6 +54,7 @@ int main()
         {
             cout<<*ite2<<endl;
         }
+        cout<<"*************"<<endl;
         }
     return 0;
     }
