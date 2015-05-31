@@ -14,17 +14,18 @@ public:
     }
 
     void solveNQ(vector<vector<string>> &allSol,vector<string> &currSol, vector<int> &numSol,int n,int irow) {
+
         if(irow==n) {
             allSol.push_back(currSol);             // 这个就是已经放入了 n和棋子 了 所以就把当前解放入 allsol里面
             return;
         }
 
-        for(int icol=0; icol<n; icol++) {                        //每一层有n种摆法  这里有个for循环 冲 0到 n-1 一个n种
-            if(validPos(numSol, irow, icol)) {             //这个就是一个用来判断当前摆的棋子是不是和之前摆的棋子有冲突的函数
+        for(int jcol=0; jcol<n; jcol++) {                        //每一层有n种摆法  这里有个for循环 冲 0到 n-1 一个n种
+            if(validPos(numSol, irow, jcol)) {             //这个就是一个用来判断当前摆的棋子是不是和之前摆的棋子有冲突的函数
                 string s(n,'.');                                   // 不冲突就摆进去
-                s[icol] = 'Q';
+                s[jcol] = 'Q';
                 currSol.push_back(s);
-                numSol.push_back(icol);
+                numSol.push_back(jcol);
                 solveNQ(allSol,currSol,numSol,n,irow+1);   //这里就是回朔了，如果用树状图的思路来想就是回到了上一层。因为这个数据结构的关系 不要分支已经被自动剪掉了。
                 currSol.pop_back();
                 numSol.pop_back();
@@ -32,10 +33,10 @@ public:
         }
     }
 
-    bool validPos(vector<int> &numSol, int irow, int icol) {  // 这个只是个判断函数
+    bool validPos(vector<int> &numSol, int irow, int jcol) {  // 这个只是个判断函数
         if(irow<numSol.size()) return false;
         for(int i=0; i<numSol.size(); i++) {
-            if(icol==numSol[i] || abs(irow-i)==abs(icol-numSol[i]))
+            if(jcol==numSol[i] || abs(irow-i)==abs(jcol-numSol[i]))
                 return false;
         }
         return true;
