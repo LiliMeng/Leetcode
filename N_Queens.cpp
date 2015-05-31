@@ -9,11 +9,11 @@ public:
         vector<vector<string>> allSol;      // 这个用来放所有的解
         vector<string> currSol;                           //这是一个解
         vector<int> numSol;                         //   这个也是用来表示解的   用的是一个数组 用数字表示棋子放在什么位置
-        solveNQ(allSol, currSol, numSol, n, 0);
+        backtrackingNQ(allSol, currSol, numSol, n, 0);
         return allSol;
     }
 
-    void solveNQ(vector<vector<string>> &allSol,vector<string> &currSol, vector<int> &numSol,int n,int irow) {
+    void backtrackingNQ(vector<vector<string>> &allSol,vector<string> &currSol, vector<int> &numSol,int n,int irow) {
 
         if(irow==n) {
             allSol.push_back(currSol);             // 这个就是已经放入了 n和棋子 了 所以就把当前解放入 allsol里面
@@ -26,7 +26,7 @@ public:
                 s[jcol] = 'Q';
                 currSol.push_back(s);
                 numSol.push_back(jcol);
-                solveNQ(allSol,currSol,numSol,n,irow+1);   //这里就是回朔了，如果用树状图的思路来想就是回到了上一层。因为这个数据结构的关系 不要分支已经被自动剪掉了。
+                backtrackingNQ(allSol,currSol,numSol,n,irow+1);   //这里就是回朔了，如果用树状图的思路来想就是回到了上一层。因为这个数据结构的关系 不要分支已经被自动剪掉了。
                 currSol.pop_back();
                 numSol.pop_back();
             }
