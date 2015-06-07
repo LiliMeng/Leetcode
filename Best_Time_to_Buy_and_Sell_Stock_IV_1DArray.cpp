@@ -11,8 +11,8 @@ public:
     int maxProfit(int k, vector<int>& prices) {
         if (prices.size()<2 || k<=0) return 0;
           if (k == 1000000000) return 1648961;
-          int local[k+1] = {0};
-          int global[k+1]={0};
+          int* local = new int[k+1]();
+          int global = new int[k+1]();
           for(int i=0;i<prices.size()-1;i++) {
               int diff = prices[i+1]-prices[i];
               for(int j=k;j>=1;j--) {
