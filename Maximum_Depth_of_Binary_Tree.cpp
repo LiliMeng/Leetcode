@@ -22,25 +22,27 @@ public:
         {
             return 0;
         }
-
-        num = numeric_limits<int>::min();
-        travel(root,1);
+        num=numeric_limits<int>::min();
+        traversal(root,1);
         return num;
     }
 
-    void travel(TreeNode* node, int level) {
+    void traversal(TreeNode* node, int level){
 
-        if(!node->left && !node->right){
+        if(!node->left&&!node->right)   //have already traveled to the farrest leaf of the tree, as there is no left and no right node.
+        {
             num=max(num,level);
-            return ;
+            return;
         }
 
-        if(node->left){
-            travel(node->left,level+1);
+        if(node->left!=NULL)
+        {
+            traversal(node->left,level+1);
         }
 
-        if(node->right){
-            travel(node->right,level+1);
+        if(node->right!=NULL)
+        {
+            traversal(node->right,level+1);
         }
     }
 };
