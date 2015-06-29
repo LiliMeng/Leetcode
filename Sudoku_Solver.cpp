@@ -35,24 +35,25 @@ public:
             for(int i=1; i<=9; i++)
             {
                 board[irow][icol]='0'+i;
-                if(isValid(board, irow, icol))
+                if(!isValid(board,irow,icol))   //先检查能不能放数i,如果不能放,把它还原为空
                 {
-                    if(solSudoku(board,irow2,icol2))
-                    {
-                        return true;
-                    }
-                    else
+                    board[irow][icol]='.';
+                }
+                else
+                {
+                    if(!solSudoku(board,irow2,icol2))
                     {
                         board[irow][icol]='.';
                     }
+                    else
+                    {
+                        return true;
+                    }
                 }
-               else
-               {
-                   board[irow][icol]='.';
-               }
+               
             }
 
-            if(board[irow][icol]=='.')
+            if(board[irow][icol]=='.')            //如果其中任何有空的 则返回false
             {
                 return false;
             }
