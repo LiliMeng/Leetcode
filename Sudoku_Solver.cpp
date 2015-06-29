@@ -53,7 +53,7 @@ public:
                
             }
 
-            if(board[irow][icol]=='.')            //如果其中任何有空的 则返回false
+            if(board[irow][icol]=='.')            //如果在计算了i之后还有空的说明出的题有问题 则返回false
             {
                 return false;
             }
