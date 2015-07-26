@@ -3,7 +3,7 @@ public:
     // Push element x onto stack.
     void push(int x) {
         //比如push1,2,3,4到stack s里，s=4,3,2,1->这样pop出来时就是4先pop出来，建一个q1使得q1=1,2,3,4->这样q1的front就是4 跟stack的4一样
-        //先把q1清空，暂时放在q2里，然后再放回q1
+        //先把q1清空，暂时放在q2里，然后再放回q1 
         while(!q1.empty())
         {
             q2.push(q1.front());
