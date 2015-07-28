@@ -10,19 +10,25 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
-       return valid(root, numeric_limits<int>::min(), numeric_limits<int>::max());
-    }
-
-    bool valid(TreeNode* node, int minVal, int maxVal) {
-        if(node==NULL) {
-            return true;
-        }
-
-        if(node->val <= minVal || node->val >= maxVal) {
-            return false;
-        }
-
-        return valid(node->left, minVal, node->val) &&
-        valid(node->right, node->val, maxVal);
+        
+        return helper(root, false, false, 0, 0);
+        
+    }  
+private:
+    bool helper(TreeNode* root, bool left, bool right, int lmax, int rmin)  
+    {  
+    
+      if(root==NULL)
+      {
+          return true;
+      }
+      
+      if((left!=NULL && root->val>=lmax)||(right!=NULL &&root->val<=rmin))
+      {
+          return false;
+      }
+     
+      return helper(root->left, true, right, root->val, rmin) && helper(root->right, left, true, lmax, root->val);
+       
     }
 };
