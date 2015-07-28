@@ -13,8 +13,8 @@ class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
 
-        ListNode* dummyHead=new ListNode(0);
-        ListNode* p=dummyHead;
+        ListNode* dummyHead=new ListNode(0);  //dummyHead is fixed
+        ListNode* p=dummyHead;  //p is the pointer of the newly merged linked list, to decide which one shall be the next node
 
         while(l1!=NULL&&l2!=NULL)
         {
