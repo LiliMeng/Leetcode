@@ -1,20 +1,12 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
- struct compNode {
+class Solution {
+public:
+    struct compNode {
         bool operator()(ListNode *p, ListNode *q) const {
             return p->val>q->val;
         }  
     };
-    
-class Solution {
-public:
-    ListNode* mergeKLists(vector<ListNode *> &lists) {
+
+    ListNode *mergeKLists(vector<ListNode *> &lists) {
         priority_queue<ListNode*, vector<ListNode*>, compNode> pq;
         ListNode *dummy = new ListNode(0), *tail = dummy;
         
@@ -28,6 +20,6 @@ public:
             if(tail->next) pq.push(tail->next);
         }
         
-        return dummy->next; 
+        return dummy->next;
     }
 };
