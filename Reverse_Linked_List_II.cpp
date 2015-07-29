@@ -27,3 +27,4 @@ public:
         return dummy->next;
     }
 };
+http://www.cnblogs.com/4everlove/archive/2014/04/07/3651002.html
