@@ -24,8 +24,8 @@ public:
     }
 };
 
-NULL 1, 2, 3,4 第一次 prev=NULL, current=1 
-1,NULL,2,3,4, 第二次 prev=1, current=2 
+NULL 1, 2, 3,4 初始值 prev=NULL, current=1 
+1,NULL,2,3,4, 第1次循环后 prev=1, current=2 
 2,1，NULL,3,4; prev=2, current=3
 3,2,1,NULL,4   prev=3, current=4
 4,3,2,1,NULL   prev=4 current=NULL 结束循环 不再进行下一次
