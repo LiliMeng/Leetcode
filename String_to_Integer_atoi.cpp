@@ -1,18 +1,21 @@
 class Solution {
 public:
     int myAtoi(string str) {
-     if(str.empty())  
+         
+        if(str.empty())  
         {  
             return 0;  
         }  
   
         int i = 0;  
+        
         while(str[i] == ' ')  
         {  
             i++;  
         }  
   
         int sign = 1;  
+        
         if(str[i] == '-')  
         {  
             sign = -1;  
@@ -20,11 +23,11 @@ public:
         }  
         else if(str[i] == '+')  
         {  
-            ++i;  
+            i++;  
         }  
   
-        long long res = 0;  
-        while(str[i] != '\0')  
+        long res = 0;  
+        while(!str.empty())  
         {  
             if(str[i] >= '0' && str[i] <= '9')  
             {  
@@ -32,7 +35,10 @@ public:
   
                 if(res > INT_MAX)  
                 {  
-                    return sign == -1 ? INT_MIN : INT_MAX;  
+                    if(sign == -1)
+                    return INT_MIN;
+                    else 
+                    return INT_MAX;  
                 }  
             }  
             else  
@@ -43,6 +49,6 @@ public:
             i++;  
         }  
   
-        return sign * res;   
+        return sign * res;  
     }
 };
