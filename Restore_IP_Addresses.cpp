@@ -19,8 +19,8 @@ public:
             }
         }
         else
-        {
-            for(int i=1; i<=3; i++)
+        {              //这里指k=1,2,3,4的情况 还没处理完4段
+            for(int i=1; i<=3; i++)      //这里的i是指每一段
             {
                 if(s.size()>=i && isValid(s.substr(0,i)))
                 {
