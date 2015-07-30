@@ -4,7 +4,7 @@ public:
     vector<string> restoreIpAddresses(string s) {
         
        vector<string> res;
-       restore(s,4,"",res);
+       restore(s,4,"",res);  //需要搞定4段, 现在已经搞定的string即已经分好的为"", res里面存的也是空, 每次搞定一段名叫remaining的string就放到res里
        return res;
         
     }
