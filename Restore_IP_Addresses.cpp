@@ -8,6 +8,7 @@ public:
        return res;
         
     }
+    //s里面存的是还没搞定的, remaining里面存的是搞定的
     
     void restore(string s, int k, string remaining, vector<string> &res){   //remaining里面存的是已经搞定的部分, 分为4段,最初搞定的是空"""
         
