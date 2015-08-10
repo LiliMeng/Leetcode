@@ -1,5 +1,5 @@
-class Solution {
 //分两种情况,一种n>0, 一种n<0的情况
+//xn = xn/2 * xn/2 * xn%2
 class Solution {
 public:
     double myPow(double x, int n) {
