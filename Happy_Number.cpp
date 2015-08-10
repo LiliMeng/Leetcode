@@ -16,7 +16,7 @@ public:
                 n=n/10;  //n=n/10 
             }
             
-            n=sum;
+            n=sum;  //每次加完后新的n值就是上次的sum
             
             if(htable.find(n)==htable.end())   //如果n不在htable里面 就把n插入到htable  如果n在htable里面就break循环 因为发现一直在循环了 在不停地循环但就是不包含1 
             {
