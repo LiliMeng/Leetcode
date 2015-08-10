@@ -4,42 +4,31 @@ public:
         
         int carry=0;
         
-        vector<int> res;
+        vector<int> res(digits.size(), 0);
         
         for(int i=digits.size()-1; i>=0; i--)
         {
             if(i==digits.size()-1)
             {
-                digits[i]=digits[i]+1;
+                res[i]=digits[i]+1;
                 
             }
             else
             {
-                digits[i]=digits[i]+carry;
+                res[i]=digits[i]+carry;
             }
             
-            carry=digits[i]/10;
+            carry=res[i]/10;
             
-            digits[i]=digits[i]%10;
+            res[i]=res[i]%10;
     
         }
         
         if(carry>0)
         {
-            res.push_back(carry);
-            for(int i=0; i<digits.size();i++)
-            {
-                res.push_back(digits[i]);
-            }
+            res.insert(res.begin(), carry);
         }
-        else
-        {
-            for(int i=0; i<digits.size();i++)
-            {
-                res.push_back(digits[i]);
-            }
-        }
-        return res;
         
+        return res;
     }
 };
