@@ -2,25 +2,25 @@ class Solution {
 public:
     int majorityElement(vector<int>& nums) {
         
-        int res = nums[0];
-        int count = 1;
-        int size = nums.size();
-        //vote from the second number
-        for( int i = 1; i < size; i++ )
+        unordered_map<int, int> htable;
+        
+        for(int i=0; i<nums.size(); i++)
         {
-            if( count == 0 ) 
+            if(htable.find(nums[i])==htable.end())
             {
-                res = nums[i]; count++;
-            }
-            else if( res == nums[i] )
-            {
-                count++;
+                htable[nums[i]]=1;
             }
             else
             {
-                count--;
+                htable[nums[i]]+=1;
+            }
+            
+            if(htable[nums[i]]>nums.size()/2)
+            {
+                return nums[i];
             }
         }
-        return res;
+        
+        
     }
 };
