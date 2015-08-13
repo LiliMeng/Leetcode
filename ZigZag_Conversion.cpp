@@ -1,24 +1,37 @@
 class Solution {
 public:
     string convert(string s, int numRows) {
-       // Start typing your C/C++ solution below
-        // DO NOT write int main() function    
-        if(numRows <= 1) return s;
-        string ret;
-        int zigsize = 2 * numRows - 2;
-        for(int i = 0; i < numRows; ++i) {
-            for(int base = i; ;base += zigsize) {
-                if(base >= s.size())
-                    break;
-                ret.append(1,s[base]);
-                if(i > 0 && i < numRows - 1) {
-                    //middle need add ziggggging char
-                    int ti = base + zigsize - 2 * i;
-                    if(ti < s.size())
-                        ret.append(1,s[ti]);
-                }
+        
+        if(numRows == 1)
+        {
+            return s;
+        }
+        string res(s.size(),' ');
+        int m=0;
+        int interval=2*numRows-2;
+        int k=0;
+        for(int i=0; i<s.size();i=i+interval)
+        {
+            res[k]=s[i];
+            k++;
+        }  //处理第一行
+        
+        for(int i=1; i<numRows-1; i++)
+        {
+            int inter = (i<<1);
+            for(int j = i; j < s.size(); j += inter)
+            {
+                res[k++] = s[j];
+                inter = interval - inter;
             }
         }
-        return ret; 
+        
+        for(int i=numRows-1; i<s.size(); i=i+interval)
+        {
+            res[k]=s[i];
+            k++;
+        }  
+        
+        return res;
     }
 };
