@@ -1,3 +1,5 @@
+http://www.cnblogs.com/TenosDoIt/p/3738693.html
+
 class Solution {
 public:
     string convert(string s, int numRows) {
