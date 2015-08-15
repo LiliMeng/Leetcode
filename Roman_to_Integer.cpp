@@ -3,7 +3,7 @@ public:
     int romanToInt(string s) {
         
         int map[26];
-        map['I'-'A'] = 1;
+        map['I'-'A'] = 1;    //IV代表4 (V-I=5-1=4)   VI代表6(V+I=5+1=6)
         map['V'-'A'] =5;
         map['X'-'A']=10;
         map['L'-'A']=50;
