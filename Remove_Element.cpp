@@ -9,14 +9,29 @@ public:
         int j=0;
         for(int i=0; i<nums.size(); i++)
         {
-            if(nums[i]==val)
+            if(nums[i]!=val)
             {
-                continue;
+                nums[j]=nums[i];
+                j++;
             }
-            nums[j]=nums[i];
-            j++;
         }
         
         return j;
     }
 };
+
+int main()
+{
+    Solution s;
+    vector<int> nums={1,2,3,4,5,3,3,4,3};
+    int val=3;
+    int l=s.removeElement(nums, val);
+    //cout<<l<<endl;         //nums里面的数已经被改掉了,输出为1,2,4,5,4,3,3,4,3; nums这个vector最后四位没有变 仅仅是最初的3被4覆盖,nums[j]=nums[i](nums[2]=nums[3]) 4被5覆盖(nums[3]=nums[4]) 5后面那个3被最后的4覆盖(nums[4]=nums[7])
+//然后后面那几位就不管了 因为nums[5]是3,nums[6]是3 nums[7](i=7)已经被提出去用来作为j=4的nums[4]了.
+    for(int i=0; i<nums.size(); i++)
+    {
+        cout<<nums[i]<<endl;
+    }
+    return 0;
+}
+
