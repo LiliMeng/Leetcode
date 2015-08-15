@@ -16,6 +16,6 @@ public:
            }
            res.push_back(strs[0][i]);
         }
-        return res;
+     
     }
 };
