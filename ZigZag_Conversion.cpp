@@ -3,8 +3,7 @@ http://www.cnblogs.com/TenosDoIt/p/3738693.html
 class Solution {
 public:
     string convert(string s, int numRows) {
-        
-        if(numRows == 1)
+         if(numRows == 1)
         {
             return s;
         }
@@ -20,7 +19,7 @@ public:
         
         for(int i=1; i<numRows-1; i++)
         {
-            int inter = (i<<1);
+            int inter = i*2;  
             for(int j = i; j < s.size(); j += inter)
             {
                 res[k++] = s[j];
