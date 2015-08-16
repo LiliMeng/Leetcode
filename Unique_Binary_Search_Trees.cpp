@@ -16,8 +16,8 @@ public:
         
         for(int i=start; i<=end; i++)
         {
-            auto l=generate(start, i-1);
-            auto r=generate(i+1, end);
+            vector<TreeNode*> l=generate(start, i-1);
+            vector<TreeNode*> r=generate(i+1, end);
             
             for(int j=0; j<l.size(); j++)
             {
