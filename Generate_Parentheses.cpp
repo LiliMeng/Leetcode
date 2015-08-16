@@ -1,27 +1,30 @@
 class Solution {
 public:
     vector<string> generateParenthesis(int n) {
-        
+
         vector<string> res;
-        if(n==0) {return res;}
+        if(n==0) return res;
         gp("",0,0,n,res);
         return res;
-    }
-    
-    void gp(string str, int l, int r, int &n, vector<string> &res)
+}
+    void gp(string s, int l, int r, int &n, vector<string> &res)
     {
-        if(l>n) {return;}
-        if(l==n && r==n)
+        if(l>n) return;
+    
+        if(l<n)
         {
-            res.push_back(str);
+            gp(s+"(",l+1,r,n,res);
         }
-        else
+        
+        if(r<l)
         {
-            gp(str+"(", l+1, r, n, res);
-            if(l>r)
-            {
-                gp(str+")", l, r+1, n, res);
-            }
+            gp(s+")",l,r+1,n,res);
+        }
+        
+        if(s.size()==2*n)
+        {
+            res.push_back(s);
         }
     }
+
 };
