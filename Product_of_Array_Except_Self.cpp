@@ -1,3 +1,11 @@
+//nums=[a1, a2, a3, a4]。
+//res=[a2*a3*a4, a1*a3*a4, a1*a2*a4, a2*a3*a4]。
+//find two array and multiply together
+//[1, a1, a1*a2, a1*a2*a3]
+//[a2*a3*a4, a3*a4, a4, 1]
+
+
+
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
