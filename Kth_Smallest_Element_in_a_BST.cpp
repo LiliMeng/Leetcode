@@ -7,18 +7,19 @@ public:
             return root->val;
         }
         
-        int left=count(root->left);
-        if(left>=k)
+        int l=count(root->left);
+        
+        if(k<=l)
         {
             return kthSmallest(root->left,k);
         }
-        else if(left+1==k)
+        else if(k==l+1)
         {
             return root->val;
         }
-        else if(left+1<k)
+        else if(k>l+1)
         {
-            return kthSmallest(root->right, k-left-1);
+            return kthSmallest(root->right, k-l-1);
         }
     }
     
