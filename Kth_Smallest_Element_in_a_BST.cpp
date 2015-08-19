@@ -23,7 +23,7 @@ public:
         }
     }
     
-    int count(TreeNode* root)
+    int count(TreeNode* root)   //count是计算TreeNode的总共的数量 看看左边有几个节点，右边几个节点 然后相加再加上root
     {
         if(root==NULL)
         {
