@@ -1,40 +1,35 @@
-class Solution{
+class Solution {
 public:
-    vector<vector<int> > levelOrder(TreeNode *root)
-    {
-        int depth=getHeight(root);
-        vector<vector<int>> res(depth);
-        if(depth==0)
-        {
-            return res;
-        }
-        DFS(res, root, 0);
+    vector<vector<int>> levelOrder(TreeNode* root) {
+       
+       int h=getHeight(root);
+       vector<vector<int>> res(h);
+       DFS(res, root, 0);
+       return res;
     }
     
     void DFS(vector<vector<int>>& res, TreeNode* root, int level)
     {
-        if(root==NULL)
-        {
-            return;
-        }
+        if(root==NULL) return;
+        
         res[level].push_back(root->val);
-        DFS(res,root->left, level+1);
-        DFS(res,root->right, level+1);
+        DFS(res, root->left, level+1);
+        DFS(res, root->right, level+1);
     }
-
+    
     int getHeight(TreeNode* root)
     {
         if(root==NULL) return 0;
-        int left=getHeight(root->left);
-        int right=getHeight(root->right);
-        if(left>right)
+        int l=getHeight(root->left);
+        int r=getHeight(root->right);
+        
+        if(l>r)
         {
-            return left+1;
+            return l+1;
         }
         else
         {
-            return right+1;
+            return r+1;
         }
-        
     }
 };
