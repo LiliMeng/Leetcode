@@ -29,7 +29,7 @@ public:
             }
         }
         
-        if(start>=0&&start<nums.size()&&nums[start]==target)
+        if(nums[start]==target)
         {
             return start;
         }
@@ -61,7 +61,7 @@ public:
             }
         }
         
-        if(end>=0&&end<nums.size()&&nums[end]==target)
+        if(nums[end]==target)
         {
             return end;
         }
