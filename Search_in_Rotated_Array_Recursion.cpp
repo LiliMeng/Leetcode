@@ -1,3 +1,5 @@
+http://fisherlei.blogspot.ca/2013/01/leetcode-search-in-rotated-sorted-array.html
+
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
