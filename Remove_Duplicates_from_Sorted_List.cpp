@@ -26,3 +26,30 @@ public:
       return head;
     }
 };
+
+//也可以只用一个指针
+
+class Solution {
+public:
+    ListNode* deleteDuplicates(ListNode* head) {
+        
+        if(head==NULL)
+        {
+            return head;
+        }
+        
+        ListNode* curr=head;
+        
+        while(curr!=NULL)
+        {
+            while(curr->next!=NULL&&curr->val==curr->next->val)
+            {
+                curr->next=curr->next->next;
+            }
+            
+            curr=curr->next;
+        }
+        
+        return head;
+    }
+};
