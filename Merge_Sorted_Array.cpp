@@ -6,7 +6,7 @@ public:
         int j=n-1;
         int k=m+n-1;
         
-        while(j>=0)
+        while(j>=0)  //只存在那种不断把num1里的m不断往nums[k] k>i的情况  
         {
             
             if(nums1[i]>nums2[j]&&i>=0)
