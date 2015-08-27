@@ -1,6 +1,7 @@
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
+        
         int m = grid.size();
         if(m==0) return 0;
         int n = grid[0].size();
@@ -34,10 +35,10 @@ public:
 
         if (grid[i][j] == '1') { //如果grid[i][j]=='1'说明visited, 然后grid[i][j]='2';
             grid[i][j] = '2';
-            dfs(grid, i - 1, j);  //朝左explore直到i-1<0 
-            dfs(grid, i + 1, j);  //朝右explore直到i+1>=m
-            dfs(grid, i, j - 1);  //朝上explore直到j-1<0
-            dfs(grid, i, j + 1);  //朝下explore直到j+1>=n
+            dfs(grid, i - 1, j);  //朝左explore直到i-1<0 返回 里面又包括不停地向左explore 
+            dfs(grid, i + 1, j);  //朝右explore直到i+1>=m 返回 里面又包括不停地向右explore
+            dfs(grid, i, j - 1);  //朝上explore直到j-1<0 返回 里面又包括不停地向下explore
+            dfs(grid, i, j + 1);  //朝下explore直到j+1>=n 返回 里面又包括不停地向上explore
         }
     }
 };
