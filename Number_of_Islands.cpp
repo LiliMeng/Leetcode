@@ -6,18 +6,21 @@ public:
         int n = grid[0].size();
         if (n == 0) return 0;
 
-        int ans = 0;
+        int res = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '0'||grid[i][j]=='2') 
-                {
+                {    
                     continue;
                 }
-                ans++;
-                dfs(grid, i, j);
+                else if(grid[i][j]=='1')
+                {
+                    res++;
+                    dfs(grid, i, j);
+                }
             }
         }
-        return ans;
+        return res;
     }
 
 
@@ -29,16 +32,15 @@ public:
 
         if (i < 0 || i >= m || j < 0 || j >= n) return;
 
-        if (grid[i][j] == '1') {
+        if (grid[i][j] == '1') { //如果grid[i][j]=='1'说明visited, 然后grid[i][j]='2';
             grid[i][j] = '2';
-            dfs(grid, i - 1, j);
-            dfs(grid, i + 1, j);
-            dfs(grid, i, j - 1);
-            dfs(grid, i, j + 1);
+            dfs(grid, i - 1, j);  //朝左explore直到i-1<0 
+            dfs(grid, i + 1, j);  //朝右explore直到i+1>=m
+            dfs(grid, i, j - 1);  //朝上explore直到j-1<0
+            dfs(grid, i, j + 1);  //朝下explore直到j+1>=n
         }
     }
 };
-
 /*
 所有的横竖连成一片的算一个岛，Example1的一片１全都连在一起了算是一个岛
 
