@@ -23,7 +23,7 @@ public:
         }
         return res;
     }
-
+//这个dfs的作用就是把遇到'1'并且把所有的与遇到的这个'1'上下左右相连的'1'都标记为'2'
 
     void dfs(vector<vector<char>> &grid, int i, int j) {
 
