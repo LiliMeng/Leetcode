@@ -12,12 +12,12 @@ public:
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '0'||grid[i][j]=='2') 
                 {    
-                    continue;
+                    continue;  //如果grid[i][j]='0'或者已经访问过了 那么就不走这个了 接着找没走过的地方即 grid[i][j]=='1'
                 }
                 else if(grid[i][j]=='1')
                 {
                     res++;
-                    dfs(grid, i, j);
+                    dfs(grid, i, j); //这样走一次dfs就把那些相连成一片的1都变成2 因为每次dfs的过程都是把上下左右连着为'1'的标记为'2'. 所以每次遇到新的grid[i][j]=='1'都是一片新的island,看到这片新的island就把这片isaland标记上 
                 }
             }
         }
@@ -33,7 +33,7 @@ public:
 
         if (i < 0 || i >= m || j < 0 || j >= n) return;
 
-        if (grid[i][j] == '1') { //如果grid[i][j]=='1'说明visited, 然后grid[i][j]='2';
+        if (grid[i][j] == '1') { //如果grid[i][j]=='1'标记上visited即grid[i][j]='2'，然后又向左explore到头后向右explore,到头后向下explore，到头后向上explore.这样吧原来有'1'的地方标记为'grid[i][j]=2'即为visited
             grid[i][j] = '2';
             dfs(grid, i - 1, j);  //朝左explore直到i-1<0 返回 里面又包括不停地向左explore 
             dfs(grid, i + 1, j);  //朝右explore直到i+1>=m 返回 里面又包括不停地向右explore
