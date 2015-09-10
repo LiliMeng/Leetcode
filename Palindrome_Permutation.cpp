@@ -8,32 +8,33 @@ using namespace std;
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
-
-      vector<int> count(256, 0);
-
-      for(int i=0; i<s.size(); i++)
-      {
-         count[s[i]]++;
-      }
-
-      bool flag = false;
-      for (auto n : count)
-      {
-        if (n & 1)
+        
+        vector<int> count(256, 0);
+        
+        for(int i=0; i<s.size(); i++)
         {
-            if (!flag)
+            count[s[i]]++;
+        }
+        
+        int countOdd=0;
+        
+        for(auto n:count)
+        {
+            if(n&1)
             {
-               flag = true;
-            }
-            else
-            {
-                return false;
+                countOdd++;
             }
         }
-        return true;
-      }
+        
+        if(countOdd>1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
-
 };
 
 int main()
