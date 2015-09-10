@@ -4,13 +4,18 @@
 
 using namespace std;
 
+
 class Solution {
 public:
     bool canPermutePalindrome(string s) {
 
       vector<int> count(256, 0);
 
-      for (auto a : s) ++count[a];
+      for(int i=0; i<s.size(); i++)
+      {
+         count[s[i]]++;
+      }
+
       bool flag = false;
       for (auto n : count)
       {
@@ -28,6 +33,7 @@ public:
         return true;
       }
     }
+
 };
 
 int main()
