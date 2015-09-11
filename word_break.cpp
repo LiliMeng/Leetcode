@@ -12,7 +12,7 @@ public:
         dp[0] = true;
         for(int i=0; i<s.size(); i++) {
             for(int j=i; j>=0; j--) {
-                if(dp[j] && wordDict.count(s.substr(j,i-j+1))!=0) {
+                if(((dp[j] && wordDict.count(s.substr(j,i-j+1)))) {
                     dp[i+1] = true;
                     break;
                 }
