@@ -26,12 +26,12 @@ public:
             else if(key<tmp->val)
             {
                 tmp=tmp->left;
-                return deleteNode(tmp->left, key);
+                return deleteNode(tmp, key);
             }
             else 
             {
                 tmp=tmp->right;
-                return deleteNode(tmp->right, key);
+                return deleteNode(tmp, key);
             }
         }
     }
