@@ -11,19 +11,35 @@ class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root, TreeNode* p) {
         
-        stack<TreeNode*> s;
+        stack<TreeNode*> myStack;
+        
         bool b = false;
-        TreeNode *t = root;
-        while (t || !s.empty()) {
-            while (t) {
-                s.push(t);
-                t = t->left;
+        
+        TreeNode* current = root;
+        
+        while(current!=NULL ||!myStack.empty())
+        {
+            while(current!=NULL)
+            {
+                myStack.push(current);
+                current = current->left;
             }
-            t = s.top(); s.pop();
-            if (b) return t;
-            if (t == p) b = true;
-            t = t->right;
+            
+            current = myStack.top();
+            myStack.pop();
+            
+            if(b)
+            {
+                return current;
+            }
+            if(current==p)
+            {
+                b = true;
+            }
+            
+            current=current->right;
         }
+      
         return NULL;
     }
 };
