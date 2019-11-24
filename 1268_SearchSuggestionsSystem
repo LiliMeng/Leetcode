@@ -1,0 +1,38 @@
+class Solution(object):
+    def suggestedProducts(self, products, searchWord):
+        """
+        :type products: List[str]
+        :type searchWord: str
+        :rtype: List[List[str]]
+        """
+        prefix_word = ""
+        final_search_res = []
+        products.sort()
+        for i in range(len(searchWord)):
+          prefix_word += searchWord[i]
+          per_search_res = []
+          print("prefix_word")
+          for j in range(len(products)):
+            if prefix_word == products[j][:len(prefix_word)]:
+              per_search_res.append(products[j])
+
+          if len(per_search_res)>=3:
+            #per_search_res.sort()
+            per_search_res = per_search_res[:3]
+          final_search_res.append(per_search_res)
+          print("per_search_res: ", per_search_res)
+
+        print("final_search_res: ", final_search_res)
+        return final_search_res
+
+
+products = ["mobile","mouse","moneypot","monitor","mousepad"] 
+searchWord = "mouse"
+products=["bags","baggage","banner","box","cloths"]
+searchWord = "bags"
+#products = ["havana"]
+#searchWord = "havana"
+#products = ["havana"]
+#searchWord = "tatiana"
+res = Solution()
+res.suggestedProducts(products, searchWord)
